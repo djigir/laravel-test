@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources\API\v1\Movie;
 
+use App\Http\Resources\API\v1\Genre\IndexGenreResource;
 use Illuminate\Http\Resources\Json\JsonResource;
-use function Symfony\Component\Routing\Loader\Configurator\collection;
 
 class MovieResource extends JsonResource
 {
@@ -19,6 +19,7 @@ class MovieResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'poster' => asset('storage/' . $this->poster),
+            'genres' => IndexGenreResource::collection($this->genres)
         ];
     }
 }

@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources\API\v1\Movie;
 
-use App\Http\Resources\API\v1\Genre\IndexGenreResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ShowMovieResource extends JsonResource
+class MovieCollectionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,7 +18,6 @@ class ShowMovieResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'poster' => asset('storage/' . $this->poster),
-            'genres' => IndexGenreResource::collection($this->genres)
         ];
     }
 }

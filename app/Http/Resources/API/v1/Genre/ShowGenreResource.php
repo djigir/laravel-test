@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\API\v1\Genre;
 
-use App\Http\Resources\API\v1\Movie\MovieResource;
+use App\Http\Resources\API\v1\Movie\MovieCollectionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ShowGenreResource extends JsonResource
@@ -18,7 +18,7 @@ class ShowGenreResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'movies' => MovieResource::collection($this->movies)->paginate(10)
+            'movies' => MovieCollectionResource::collection($this->movies)->paginate(10)
         ];
     }
 }
